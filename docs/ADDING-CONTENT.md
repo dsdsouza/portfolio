@@ -1,6 +1,6 @@
 # Adding portfolio content
 
-Run `npm install`, then `npm run dev`. Edit the data files below; array order controls display order. Entries get routes and analytics targets automatically. You do not need to edit page components when adding an entry.
+Run `npm install`, then `npm run dev`. Edit the data files below; array order controls display order. Entries get routes automatically. You do not need to edit page components when adding an entry.
 
 | Content | File | Address |
 | --- | --- | --- |
@@ -64,4 +64,4 @@ Put originals in `public/assets/` under `projects/<slug>/`, `memories/<id>/`, `o
 
 Run `npm run check` before shipping. It validates content and local assets, then creates the production build. The build also verifies a 120 KiB gzip initial-JS budget and that PDF/browser code stays lazy.
 
-`npm run build` creates `dist/`. Deploy updates only when requested using `npx wrangler deploy`. The configured project is `kjdfksjdfkjsdfkjshdfjk`; analytics uses its D1 database. Production GitHub opens directly because the interactive Chromium helper is local only. Phones use direct profile/PDF/email links. The official LinkedIn badge is temporary and may fail when visitors block its scripts.
+`npm run build` creates `dist/`. Deploy updates only when requested using `npx wrangler deploy`. The configured project is `kjdfksjdfkjsdfkjshdfjk`. Production GitHub opens directly because the interactive Chromium helper is local only. Phones use direct profile/PDF/email links. The official LinkedIn badge is temporary and may fail when visitors block its scripts.

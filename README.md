@@ -42,7 +42,6 @@ npm run build
 | `ProfileViewer`, `PreviewBoundary` | On-demand profile/PDF viewers and failure recovery |
 | `ViewerDialog` | Shared centered popup, scroll lock, focus restoration |
 | `PdfToolbar`, `lib/pdfControls.js`, `lib/pdfTheme.js` | App-owned PDF toolbar, stable engine state, custom SVGs, portfolio colors |
-| `lib/useAnalytics.js`, `worker/index.js` | Batched foreground-time analytics; no requests per navigation/scroll |
 
 React is split into a stable vendor chunk for caching between content updates. Profile viewer code is loaded on demand; the larger PDF renderer and WASM remain separate from startup. Only the current gallery slide and immediate neighbors mount images. Generated images and hashed JS/CSS/WASM use immutable cache headers; originals and HTML can revalidate.
 
@@ -59,13 +58,12 @@ npm run build
 npx wrangler deploy
 ```
 
-Wrangler binds the existing D1 analytics database and serves `dist/`. Production GitHub opens directly; the interactive browser helper runs only in local Vite. The official LinkedIn card is temporary, loads only when opened, and can be blocked by browser privacy tools. Phones use direct links.
+Wrangler serves `dist/` as static assets. Production GitHub opens directly; the interactive browser helper runs only in local Vite. The official LinkedIn card is temporary, loads only when opened, and can be blocked by browser privacy tools. Phones use direct links.
 
 ## Sources and supporting docs
 
 - [Optimization measurements and verification](docs/OPTIMIZATION.md)
 - [Asset provenance and licenses](ASSETS.md)
-- [Analytics setup and queries](docs/ANALYTICS.md)
 - [LinkedIn investigation](docs/LINKEDIN-INVESTIGATION.md)
 - [Editable resume project](resume-jakes-template/README.md)
 

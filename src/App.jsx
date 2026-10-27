@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { profile } from './data/profile.js';
 import { useHashRoute } from './lib/useHashRoute.js';
-import { useAnalytics } from './lib/useAnalytics.js';
 import { resolveRoute } from './lib/contentCatalog.js';
 import BackLink from './components/BackLink.jsx';
 import Header from './components/Header.jsx';
@@ -23,7 +22,6 @@ export default function App() {
   const headingRef = useRef(null);
   const [viewer, setViewer] = useState(null);
   const viewerLink = profile.links.find((link) => link.viewer === viewer);
-  useAnalytics(route, viewer);
 
   useEffect(() => { if (detailView) setViewer(null); }, [detailView]);
   useEffect(() => {
