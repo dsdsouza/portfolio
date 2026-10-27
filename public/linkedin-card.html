@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Official LinkedIn profile card</title>
+  <style>
+    html { overflow: hidden; }
+    body { display: flow-root; margin: 0; background: #eeefeb; color: #272b25; font: 14px/1.5 sans-serif; }
+    .badge-base { width: 100%; }
+    .badge-base > iframe { display: block; margin-inline: auto; max-width: 100%; }
+    #status { margin: 8px 0; text-align: center; }
+  </style>
+</head>
+<body>
+  <p id="status" role="status">Loading LinkedIn card…</p>
+  <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-version="v1"></div>
+  <script>
+    const badge = document.querySelector('.badge-base');
+    const status = document.getElementById('status');
+    const vanity = new URLSearchParams(location.search).get('profile');
+    if (/^[a-zA-Z0-9-]+$/.test(vanity || '')) {
+      badge.dataset.vanity = vanity;
+      const observer = new MutationObserver(() => {
+        const frame = badge.querySelector('iframe');
+        if (!frame) return;
+        frame.title = 'LinkedIn public profile badge';
+        const removeRetirementNotice = () => {
+          // LinkedIn's loader writes this badge into an about:blank document.
+          // Remove only the notice requested by the site owner, not profile content.
+          const doc = frame.contentDocument;
+          if (!doc?.body) return;
+          for (const image of doc.images) image.draggable = false;
+          const noticeText = 'This feature will no longer be available on 12/12/2026';
+          const normalize = (value) => value.replace(/\s+/g, ' ').trim();
+          const notice = [...doc.body.querySelectorAll('*')].find((element) => normalize(element.textContent) === noticeText);
+          if (notice) {
+          let banner = notice;
+          while (banner.parentElement !== doc.body && banner.parentElement && normalize(banner.parentElement.textContent) === noticeText) banner = banner.parentElement;
+          banner.remove();
+          }
+          // Reset the old viewport height before measuring the shorter card.
+          frame.style.height = '0px';
+          frame.style.height = `${doc.body.scrollHeight + 5}px`;
+        };
+        frame.addEventListener('load', removeRetirementNotice);
+        removeRetirementNotice();
+        status.hidden = true;
+        observer.disconnect();
+        clearTimeout(timeout);
+      });
+      observer.observe(badge, { childList: true, subtree: true });
+      const timeout = setTimeout(() => {
+        status.textContent = 'The LinkedIn card is unavailable. Use the profile link below.';
+      }, 12000);
+      const script = document.createElement('script');
+      script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+      script.async = true;
+      script.defer = true;
+      script.onerror = () => {
+        clearTimeout(timeout);
+        status.textContent = 'The LinkedIn card could not load. Use the profile link below.';
+      };
+      document.body.append(script);
+    } else status.textContent = 'This LinkedIn profile is unavailable.';
+  </script>
+</body>
+</html>

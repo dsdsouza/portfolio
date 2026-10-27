@@ -1,0 +1,23 @@
+.DS_Store
+node_modules/
+dist/
+.openai/*.tar.gz
+.openai/*.tgz
+.wrangler/
+.dev.vars*
+.env.local
+
+# Rebuilt from original source assets by predev/prebuild
+public/assets/generated/
+src/data/imageVariants.generated.js
+# Resume compilation intermediates
+resume-jakes-template/*.aux
+resume-jakes-template/*.log
+resume-jakes-template/*.out
+tmp/
+
+# Local review artifacts
+.impeccable/
+.openai/
+research/
+output/

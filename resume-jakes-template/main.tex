@@ -1,0 +1,184 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[protrusion=false]{microtype}
+\DisableLigatures{encoding = *, family = *}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+% Headings use normal text flow to preserve PDF reading order.
+\ifdefined\pdfglyphtounicode\input{glyphtounicode}\fi
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+\usepackage[protrusion=false]{microtype}
+\DisableLigatures{encoding = *, family = *}
+
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \bfseries\raggedright\large
+}{}{0em}{}[\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{4pt}
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\ifdefined\pdfgentounicode\pdfgentounicode=1\fi
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1}
+  }
+}
+
+% Emit a nonprinting space glyph so extractors retain field boundaries.
+\newcommand{\pdfspace}{\mbox{\textcolor{white}{\char32}}}
+
+% Right-aligned dates in normal text flow; no layout tables.
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \textbf{#1}\hfill\pdfspace {\small #2}\\
+    {\small\textit{#3}\hfill\pdfspace #4}\par\vspace{-2pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item {\small #1\hfill\pdfspace #2}\par\vspace{-2pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in,label={},topsep=2pt,itemsep=2pt,parsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=2pt,itemsep=1pt,parsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\hypersetup{pdftitle={Daniel D'Souza Resume},pdfauthor={Daniel D'Souza}}
+\begin{document}
+\begin{center}
+  \textbf{\Huge Daniel D'Souza} \\ \vspace{2pt}
+  \small East Northport, NY \textbar{} 631-258-0734 \textbar{}
+  \href{mailto:daniel.dsouza@stonybrook.edu}{\underline{daniel.dsouza@stonybrook.edu}} \\
+  \href{https://linkedin.com/in/danielsdsouza}{\underline{linkedin.com/in/danielsdsouza}} \textbar{}
+  \href{https://github.com/dsdsouza}{\underline{github.com/dsdsouza}}
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading{Stony Brook University}{Stony Brook, NY}
+    {Bachelor of Science in Computer Science}{Expected May 2029}
+    \resumeItemListStart
+      \resumeItem{Honors College; Computer Science Honors Program.}
+    \resumeItemListEnd
+  \resumeSubheading{Northport Senior High School}{Northport, NY}
+    {Weighted average: 104.02\%; Class rank: 4/356}{Sep 2022 - Jun 2026}
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading{ReWild Long Island}{Remote}
+    {Software Development Intern, AI Team}{Aug 2026 - Present}
+    \resumeItemListStart
+      \resumeItem{Developing Sustainable Landcare Hub, a multilingual conversational platform for native-plant guidance, using containerized Gemma models and Hugging Face BGE-M3 embeddings.}
+      \resumeItem{Building Python and TypeScript REST services with Docker on Google Cloud Platform; designing PostgreSQL and pgvector schemas for vector similarity search across partner nonprofit resources.}
+    \resumeItemListEnd
+  \resumeSubheading{ReWild Long Island}{Remote}
+    {Software Development Intern, Full Stack Web Development Team}{Sep 2025 - Aug 2026}
+    \resumeItemListStart
+      \resumeItem{Led a small team building a volunteer and intern platform with Node.js, TypeScript, Python, and JWT authentication, supporting validated volunteer hours, event registrations, waitlists, and chapter teams.}
+      \resumeItem{Deployed the frontend to Vercel and migrated the backend from Cloudflare to Google Cloud Platform via REST APIs; automated scheduling, location tracking, and user profile workflows with PowerShell, Git, and PostgreSQL.}
+    \resumeItemListEnd
+  \resumeSubheading{Designatronics}{Hicksville, NY}
+    {Management of Information Systems (MIS) Intern}{Jun 2025 - Aug 2025}
+    \resumeItemListStart
+      \resumeItem{Migrated a legacy engineering application using C\#, PHP, Java, JavaScript, HTML, and CSS to meet Department of Defense cybersecurity requirements.}
+      \resumeItem{Reverse-engineered and redeployed server infrastructure with Microsoft IIS, MySQL, and PowerShell; supported hardware, network printers, Active Directory, and Windows/Linux systems.}
+    \resumeItemListEnd
+  \resumeSubheading{RTX Corporation}{Remote}
+    {Future Ready Engineer Intern}{Jun 2024 - Jul 2024}
+    \resumeItemListStart
+      \resumeItem{Built an AI-driven phishing detection prototype with Python, JavaScript, HTML, and CSS to help protect older adults from email threats.}
+      \resumeItem{Refined interface layouts and streamlined feature delivery to make phishing detection intuitive for older adults.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading{\textbf{\href{https://devpost.com/software/boilerplate-3mxhbv}{Boilerplate}}\pdfspace | Student Workload Planner}{Oct 2026}
+    {\small\textit{Next.js, React, TypeScript, Supabase, Gemini}\par}\vspace{-5pt}
+    \resumeItemListStart
+      \resumeItem{Won Best Beginner Track at SBUHacks 2026 (300+ participants); built and deployed a student workload planner with a team in 36 hours.}
+      \resumeItem{Combined coursework and calendars into a seven-day workload forecast; used Gemini to suggest study sessions based on assignments and available time, and built a distraction-blocking browser extension.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=2pt,itemsep=2pt,parsep=0pt]
+  \small{\item{
+    \textbf{Languages:}\pdfspace Python, TypeScript, JavaScript, Java, SQL, C\#, PHP, HTML/CSS, PowerShell, Bash \\
+    \textbf{Frameworks \& Tools:}\pdfspace React, Next.js, Node.js, Tailwind CSS, Docker, Git, REST APIs, JWT, Microsoft IIS \\
+    \textbf{Databases \& Cloud:}\pdfspace PostgreSQL, pgvector, MySQL, Supabase, Google Cloud Platform, Cloudflare, Vercel
+  }}
+\end{itemize}
+
+\section{Leadership \& Awards}
+\resumeSubHeadingListStart
+  \resumeProjectHeading{\textbf{Northport Senior High School}}{2022 - 2026}
+    \resumeItemListStart
+      \resumeItem{Co-President, Academy of Information Technology (NAFTrack Certified); Co-Captain, Mathletes (Math Madness national championship); Captain, Varsity Boys' Badminton.}
+      \resumeItem{AP Scholar with Distinction (2025, 2026); College Board National Recognition Award (2025).}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+\end{document}
